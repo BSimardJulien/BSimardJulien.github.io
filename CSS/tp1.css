@@ -1,0 +1,657 @@
+/*==============================NOUVELLES TECHNIQUES=====================================*/
+/*
+	J'ai utilisé un scroll-behavior : smooth pour ma version mobile
+	J'ai utilisé un overflow : hidden pour ma version desktop pour bloqué le scroll
+	J'ai utilisé les balises ::after et before à plusieurs reprises
+*/
+/*=====================================================================================*/
+
+/*===================================FONT FACE========================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+/*--------------------------------------------------------MOBILE-----------------------------------------------------------------*/
+
+* {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+h1 {
+	display: none;
+}
+
+/*===============================HAMBURGER MENU======================================*/
+
+.hamburger_menu {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 2vh;
+	left: 2%;
+	z-index: 1;
+}
+
+.hamburger {
+	margin-bottom: 15%;
+	width: 5vw;
+	height: 5px;
+	background-color: black;
+	transition: all 0.5s ease;
+}
+
+.hamburger:last-of-type {
+	margin-bottom: 0;
+}
+
+nav {
+	z-index: 1;
+	opacity: 0;
+	position: absolute;
+	top: -20vh;
+	transition: all 1s ease;
+	font-weight: bold;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin-left: 8vw;
+}
+
+nav ul a {
+	color: black;
+	text-decoration: none;
+}
+
+nav ul li {
+	padding-left: 1vw;
+}
+
+nav ul li:first-of-type {
+	padding-left: 0;
+}
+
+nav ul li:nth-of-type(2) {
+	border-left: 2px solid black;
+	margin-left: 1vw;
+}
+
+nav ul li:nth-of-type(3) {
+	border-left: 2px solid black;
+	margin-left: 1vw;
+}
+
+nav ul li:nth-of-type(4) {
+	border-left: 2px solid black;
+	margin-left: 1vw;
+}
+
+nav ul li:last-of-type {
+	border-left: 2px solid black;
+	margin-left: 1vw;
+}
+
+#checkbox:checked~.hamburger:first-of-type {
+	transform: translateY(2px) rotate(220deg);
+}
+
+#checkbox:checked~.hamburger:nth-of-type(2) {
+	transform: translate(-20vh) rotate(360deg);
+	opacity: 0;
+}
+
+#checkbox:checked~.hamburger:last-of-type {
+	transform: translateY(-4px) rotate(140deg);
+}
+
+#checkbox:checked~nav {
+	top: 0;
+	opacity: 1;
+}
+
+#checkbox {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	z-index: 2;
+}
+
+/*=======================================================================================*/
+
+/*===================================MAIN MENU==========================================*/
+
+.main_menu {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.smooth_scroll {
+	text-decoration: none;
+}
+
+#smooth_scroll_1 {
+	color: #FF0038;
+}
+
+#smooth_scroll_2 {
+	color: #FFCE38;
+}
+
+#smooth_scroll_3 {
+	color: #020509;
+	;
+}
+
+#smooth_scroll_4 {
+	color: #00CFFA;
+}
+
+.titles {
+	z-index: 3;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.titles:first-of-type {
+	background-image: url("../Images/Contact.jpg");
+}
+
+.titles:nth-of-type(2) {
+	background-image: url("../Images/Expertise.jpg");
+}
+
+.titles:nth-of-type(3) {
+	background-image: url("../Images/Education.jpg");
+}
+
+.titles:last-of-type {
+	background-image: url("../Images/Portfolio.jpg");
+}
+
+.titles::before {
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.titles:first-of-type::before {
+	background-color: rgba(0, 207, 250, 0.7);
+}
+
+.titles:nth-of-type(2)::before {
+	background-color: rgba(255, 0, 5, 0.7);
+}
+
+.titles:nth-of-type(3)::before {
+	background-color: rgba(255, 206, 56, 0.7);
+}
+
+.titles:last-of-type::before {
+	background-color: rgba(2, 5, 9, 0.7);
+}
+
+.titles h2 {
+	z-index: 1;
+	margin: 0;
+	padding-left: 10%;
+	margin-bottom: 10px;
+}
+
+.titles h2::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 12%;
+	left: 10%;
+}
+
+.titles:first-of-type h2::after {
+	border-bottom: 2px solid #FF0038;
+}
+
+.titles:nth-of-type(2) h2::after {
+	border-bottom: 2px solid #FFCE38;
+}
+
+.titles:nth-of-type(3) h2::after {
+	border-bottom: 2px solid #020509;
+}
+
+.titles:last-of-type h2::after {
+	border-bottom: 2px solid #00CFFA;
+}
+
+/*=========================================================================================*/
+
+/*==========================================PAGES==========================================*/
+
+.pages {
+	position: relative;
+}
+
+.main_page {
+	height: 100vh;
+	width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: white;
+	position: relative;
+}
+
+.main_page:first-of-type {
+	background-color: rgba(0, 207, 250, 0.7);
+}
+
+.main_page:nth-of-type(2) {
+	background-color: rgba(255, 0, 5, 0.7);
+}
+
+.main_page:nth-of-type(3) {
+	background-color: rgba(255, 206, 56, 0.7);
+}
+
+.main_page:last-of-type {
+	background-color: rgba(2, 5, 9, 0.7);
+}
+
+.main_page_titles {
+	padding-left: 5%;
+	margin-top: 10px;
+}
+
+.main_page_titles::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 12%;
+	left: 5%;
+	border-bottom: 2px solid black;
+}
+
+.inside_main_page {
+	position: absolute;
+	left: 5%;
+	top: 2.5vh;
+	height: 95vh;
+	width: 90%;
+	margin: auto;
+	border: 1px;
+	border-radius: 10px;
+	background-color: rgb(235, 235, 235);
+	color: black;
+}
+
+.p_image {
+	float: left;
+	width: 40vw;
+	border: 3px solid black;
+	border-radius: 3px;
+	margin: 1em;
+}
+
+.p_logo {
+	width: 10vw;
+	height: 5vh;
+	border: 3px solid black;
+	border-radius: 3px;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	margin-top: 1rem;
+}
+
+.big_logo {
+	width: 15vw;
+	display: block;
+	border: 1px;
+	border-radius: 3px;
+}
+
+#courriel {
+	margin-top: 4vh;
+	color: #00CFFA;
+}
+
+#telephone {
+	color: #00CFFA;
+	margin-top: 4vh;
+}
+
+.info {
+	display: flex;
+	text-align: center;
+	height: 10vh;
+}
+
+.info_title {
+	font-size: 0.8rem;
+}
+
+.info:last-of-type {
+	justify-content: space-evenly;
+	margin-top: 2vh;
+}
+
+.languages {
+	margin-top: 5vh;
+	margin-left: 2px;
+}
+
+.languages::after {
+	display: block;
+	position: absolute;
+	width: 90%;
+	left: 5%;
+	border-radius: 3px;
+	margin-top: 8px;
+	border: 2px solid black;
+	color: rgba(255, 0, 5, 0.7);
+}
+
+#languages_HTMLCSS::after {
+	content: '■■■■■■■■■■■■■■■■■■ 70%';
+}
+
+#languages_JAVASCRIPT::after {
+	content: '■■■■■■■■■ 45%';
+}
+
+#languages_C::after {
+	content: '■■■■■■■■■■■■ 50%';
+}
+
+#languages_JAVA::after {
+	content: '■■■■■■■■■■■■ 50%';
+}
+
+#languages_ANDROID::after {
+	content: '■■■■■■ 30%';
+}
+
+#languages_SQL::after {
+	content: '■■■■■25%';
+}
+
+#languages_MYSQL::after {
+	content: '■■■ 15%';
+}
+
+#languages_MONGODB::after {
+	content: '■■■ 15%';
+}
+
+.annee {
+	font-size: .8rem;
+}
+
+.education_elem {
+	border: 3px solid black;
+	border-radius: 3px;
+	margin: 1rem;
+}
+
+.yellow {
+	color: #FFCE38;
+}
+
+#portfolio {
+	display: flex;
+	flex-direction: column;
+}
+
+.gif {
+	float: left;
+	width: 40vw;
+	height: 20vh;
+	margin-top: 1vh;
+	margin-left: 1vh;
+	border-radius: 3px;
+	border: 2px solid black;
+	margin-right: 3vw;
+}
+
+.projects h3 {
+	margin-top: 1vh;
+	font-size: 0.8rem;
+	text-decoration: underline;
+	margin-left: 4vw;
+}
+
+.projects p {
+	margin-top: 1vh;
+	font-size: 0.7rem;
+}
+
+/*========================================================================================*/
+
+/*=====================================FOOTER============================================*/
+
+.menu_bouton {
+	height: 3vh;
+	position: fixed;
+	width: 2.7em;
+	z-index: 1;
+	bottom: 0.8vh;
+	left: 85%;
+	border: 3px solid black;
+	border-radius: 5px;
+}
+
+.menu_bouton a {
+	position: absolute;
+	text-decoration: none;
+	font-weight: bold;
+	color: black
+}
+
+/*=========================================================================================*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------HIGHER THAN 640PX----------------------------------------------------------------------------*/
+
+@media only screen and (min-width:640px) {
+	html {
+		overflow: hidden;
+	}
+	.main_menu {
+		flex-direction: row;
+	}
+	.smooth_scroll {
+		font-size: 3rem;
+	}
+	.titles:first-of-type {
+		background-image: url("../Images/plain-white-background.jpg");
+	}
+	.titles:nth-of-type(2) {
+		background-image: url("../Images/plain-white-background.jpg");
+	}
+	.titles:nth-of-type(3) {
+		background-image: url("../Images/plain-white-background.jpg");
+	}
+	.titles:last-of-type {
+		background-image: url("../Images/plain-white-background.jpg");
+	}
+	.titles h2::after {
+		display: none;
+	}
+	.titles h2 {
+		border-radius: 10px;
+		margin-left: 1vw;
+		margin-top: 3vw;
+		margin-right: 3vw;
+		margin-bottom: 3vw;
+	}
+	.titles:first-of-type h2 {
+		border: 8px solid rgb(255, 0, 5);
+	}
+	.titles:nth-of-type(2) h2 {
+		border: 8px solid rgb(255, 206, 56);
+	}
+	.titles:nth-of-type(3) h2 {
+		border: 8px solid black;
+	}
+	.titles:last-of-type h2 {
+		border: 8px solid rgb(0, 207, 250);
+	}
+	.titles:first-of-type:hover {
+		background-image: url("../Images/Contact.jpg");
+	}
+	.titles:nth-of-type(2):hover {
+		background-image: url("../Images/ExpertiseDesktop.jpg");
+	}
+	.titles:nth-of-type(3):hover {
+		background-image: url("../Images/Education.jpg");
+	}
+	.titles:last-of-type:hover {
+		background-image: url("../Images/Portfolio.jpg");
+	}
+	.main_page_titles {
+		margin-top: 5vh;
+		padding: 0;
+		margin-left: 2vw;
+		font-size: 3rem;
+		text-decoration: underline;
+	}
+	.main_page_titles::after {
+		display: none;
+	}
+	.p_image {
+		top: 3vh;
+		float: right;
+		width: 35vw;
+		height: 80vh;
+	}
+	.random_text {
+		font-size: 1.5rem;
+		margin: 2vw;
+	}
+	.p_logo {
+		width: 5vw;
+		height: 7vh;
+		margin-left: 2vw;
+	}
+	#courriel {
+		font-size: 2rem;
+	}
+	#telephone {
+		font-size: 2rem;
+	}
+	.big_logo {
+		margin-top: 10vh;
+		width: 5vw;
+		height: 10vh;
+	}
+	.hamburger {
+		display: none;
+	}
+	nav {
+		opacity: 1;
+		position: absolute;
+		top: 3vh;
+		left:55vw;
+		font-size: 1.5rem;
+
+	}
+
+	#checkbox:checked~.hamburger:last-of-type {
+		transform: translateY(-2px) rotate(140deg);
+	}
+	.menu_bouton {
+		height: 5vh;
+		font-size: 3rem;
+		bottom: 0.8vh;
+		left: 3%;
+		border: 8px solid black;
+		border-radius: 10px;
+	}
+	.languages {
+		font-size: 2rem;
+		margin-top: 5vh;
+		margin-left: 20vw;
+	}
+	.languages::after {
+		display: block;
+		position: absolute;
+		width: 40%;
+		border-radius: 10px;
+		border: 5px solid black;
+		margin-left: 18vw;
+	}
+	#languages_HTMLCSS::after {
+		content: '■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 70%';
+	}
+
+	#languages_JAVASCRIPT::after {
+		content: '■■■■■■■■■■■■■■■■ 45%';
+	}
+
+	#languages_C::after {
+		content: '■■■■■■■■■■■■■■■■■■■50%';
+	}
+
+	#languages_JAVA::after {
+		content: '■■■■■■■■■■■■■■■■■■■50%';
+	}
+
+	#languages_ANDROID::after {
+		content: '■■■■■■■■■■■■ 30%';
+	}
+
+	#languages_SQL::after {
+		content: '■■■■■■■■25%';
+	}
+
+	#languages_MYSQL::after {
+		content: '■■■■■ 15%';
+	}
+
+	#languages_MONGODB::after {
+		content: '■■■■■ 15%';
+	}
+	.education_elem {
+		border: 5px solid black;
+		border-radius: 10px;
+		margin: 1rem;
+		font-size: 1.5rem;
+	}
+	.annee {
+		font-size: 1.0rem;
+	}
+	.gif {
+		width: 15vw;
+		height: 18vh;
+		border-radius: 5px;
+		border: 5px solid black;
+	}
+	.projects h3 {
+		font-size: 2rem;
+	}
+	.projects p {
+		margin-top: 1vh;
+		font-size: 1.5rem;
+	}
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
